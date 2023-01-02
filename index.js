@@ -1,9 +1,10 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const { parseTopOutput, updateMessage } = require("./system-usage");
+const config = require("./config.json");
 
 client.on("ready", async () => {
-  const channel = client.channels.get("YOUR_CHANNEL_ID_HERE");
+  const channel = client.channels.get(config.channelId);
   if (!channel) return;
 
   // Send the initial message and save the message ID
@@ -21,4 +22,4 @@ client.on("ready", async () => {
   }, 15 * 60 * 1000);
 });
 
-client.login("YOUR_TOKEN_HERE");
+client.login(config.token);
