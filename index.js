@@ -4,6 +4,8 @@ const config = require("./config.json");
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
+client.login(config.token);
+
 client.on("ready", async () => {
   const channel = client.channels.get(config.channelId);
   if (!channel) return;
@@ -23,4 +25,3 @@ client.on("ready", async () => {
   }, 15 * 60 * 1000);
 });
 
-client.login(config.token);
