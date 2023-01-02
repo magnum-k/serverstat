@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
-const { parseTopOutput, updateMessage } = require("./system-usage");
+const client = new Discord.Client();
+const { updateMessage } = require("./system-usage");
 const config = require("./config.json");
 
 const intents = Discord.Intents.GUILDS | Discord.Intents.GUILD_MEMBERS;
@@ -12,15 +13,13 @@ client.on("ready", async () => {
   const channel = client.channels.get(config.channelId);
   if (!channel) return;
 
-  // Send the initial message and save the message ID
-  const topOutput = await parseTopOutput();
-  if (!topOutput) return;
-  const message = await channel.send("", { embed: topOutput });
+  // Send the initial message and save the message object
+  const message = await channel.send("Updating system usage...");
   if (!message) return;
 
   // Update the message every 15 minutes
   setInterval(async () => {
-    updateMessage(client, message);
+    updateMessage(channel, message);
   }, 15 * 60 * 1000);
 });
 
