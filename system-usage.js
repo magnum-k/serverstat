@@ -72,4 +72,3 @@ const parseTopOutput = (output) => {
 module.exports = {
   updateMessage
 }
-``
