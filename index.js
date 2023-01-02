@@ -9,7 +9,9 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 client.login(config.token);
 
 client.on("ready", async () => {
-  const channel = client.channels.get(config.channelId);
+  const guild = client.guilds.get(config.guildId);
+  if (!guild) return;
+  const channel = guild.channels.find(channel => channel.name === config.channelName);
   if (!channel) return;
 
   // Send the initial message and save the message ID
@@ -25,7 +27,6 @@ client.on("ready", async () => {
     if (!topOutput) return;
     updateMessage(channel, message, topOutput);
   }, 15 * 60 * 1000);
-});
 
 client.on("message", async message => {
   if (message.content === config.updateCommand) {
