@@ -23,7 +23,7 @@ client.on("ready", async () => {
   setInterval(async () => {
     const topOutput = await updateMessage(client);
     if (!topOutput) return;
-    updateMessage(channel, messageId, topOutput);
+    updateMessage(channel, message, topOutput);
   }, 15 * 60 * 1000);
 });
 
