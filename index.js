@@ -1,10 +1,8 @@
 const fs = require('fs');
 const path = require('path');
-const { Client, GatewayIntentBits, Collection } = require('discord.js');
+const { Client, GatewayIntentBits, Collection, Intents } = require('discord.js');
 const { updateMessage } = require("./system-usage");
 const config = require("./config.json");
-
-const { Client, Intents } = require('discord.js');
 
 const client = new Client({ intents: [Intents.GUILDS, Intents.GUILD_MESSAGES] });
 
