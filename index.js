@@ -26,4 +26,3 @@ client.on("ready", async () => {
     updateMessage(channel, message, topOutput);
   }, 15 * 60 * 1000);
 });
-
