@@ -4,5 +4,6 @@
 # Ignore the node_modules directory
 node_modules/
 
-# Ignore a file called config.json
+# Ignore a file called config.json and config.sh
 config.json
+config.sh
