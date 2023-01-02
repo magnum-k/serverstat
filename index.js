@@ -5,12 +5,12 @@ const { updateMessage } = require("./system-usage");
 const config = require("./config.json");
 const { token } = require('./config.json');
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({ intents: [GatewayIntentBits.Guild] });
 
 client.login(token);
 
 client.on("ready", async () => {
-  const guild = client.guilds.cache.get(config.guildId);
+  const guild = client.guild.cache.get(config.guildId);
   if (!guild) return;
   const channel = guild.channels.cache.find(channel => channel.name === config.channelName);
   if (!channel) return;
