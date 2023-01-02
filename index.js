@@ -3,6 +3,12 @@ const client = new Discord.Client();
 const { parseTopOutput, updateMessage } = require("./system-usage");
 const config = require("./config.json");
 
+const intents = Discord.Intents.GUILDS | Discord.Intents.GUILD_MEMBERS;
+
+const client = new Discord.Client({
+  intents: intents
+});
+
 client.on("ready", async () => {
   const channel = client.channels.get(config.channelId);
   if (!channel) return;
