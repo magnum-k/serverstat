@@ -27,9 +27,10 @@ client.on("ready", async () => {
   }, 15 * 60 * 1000);
   
   client.on("message", async message => {
-  if (message.content === config.updateCommand) {
-    const topOutput = await updateMessage(client);
-    if (!topOutput) return;
-    updateMessage(channel, message, topOutput);
-  }
+    if (message.content === config.updateCommand) {
+      const topOutput = await updateMessage(client);
+      if (!topOutput) return;
+      updateMessage(channel, message, topOutput);
+    }
+  });
 });
