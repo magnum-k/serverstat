@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const { updateMessage } = require("./system-usage");
 const config = require("./config.json");
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Discord.Client({ intents: [Discord.Intents.GUILDS] });
 
 client.login(config.token);
 
