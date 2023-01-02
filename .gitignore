@@ -1,0 +1,8 @@
+# Ignore all files with the .txt extension
+*.txt
+
+# Ignore the node_modules directory
+node_modules/
+
+# Ignore a file called config.json
+config.json
