@@ -1,8 +1,10 @@
-const Discord = require("discord.js");
+const fs = require('node:fs');
+const path = require('node:path');
+const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
 const { updateMessage } = require("./system-usage");
 const config = require("./config.json");
 
-const client = new Discord.Client({ intents: [Discord.Intents.GUILDS] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 client.login(config.token);
 
