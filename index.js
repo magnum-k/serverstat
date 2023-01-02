@@ -3,6 +3,7 @@ const path = require('node:path');
 const { Client, GatewayIntentBits, Collection } = require('discord.js');
 const { updateMessage } = require("./system-usage");
 const config = require("./config.json");
+const guild = client.guilds.get(config.guildId);
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
