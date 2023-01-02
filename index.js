@@ -17,13 +17,10 @@ client.on("ready", async () => {
   if (!topOutput) return;
   const message = await channel.send("", { embed: topOutput });
   if (!message) return;
-  const messageId = message.id;
 
   // Update the message every 15 minutes
   setInterval(async () => {
-    const topOutput = await parseTopOutput();
-    if (!topOutput) return;
-    updateMessage(channel, messageId, topOutput);
+    updateMessage(client, message);
   }, 15 * 60 * 1000);
 });
 
