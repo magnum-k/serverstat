@@ -7,7 +7,6 @@ const config = require("./config.json");
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 client.login(config.token);
-
 client.on("ready", async () => {
   const guild = client.guilds.get(config.guildId);
   if (!guild) return;
@@ -35,3 +34,4 @@ client.on("message", async message => {
     updateMessage(channel, message, topOutput);
     }
   });
+});
