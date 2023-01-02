@@ -1,14 +1,14 @@
 const Discord = require("discord.js");
 const { updateMessage } = require("./system-usage");
 const config = require("./config.json");
-const intents = new Discord.Intents();
+
+const intents = Discord.Intents.NONE;
 intents.add(Discord.Intents.GUILDS);
 intents.add(Discord.Intents.GUILD_MEMBERS);
 
 const client = new Discord.Client({
   intents: intents
 });
-
 
 client.on("ready", async () => {
   const channel = client.channels.get(config.channelId);
