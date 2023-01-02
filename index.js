@@ -34,4 +34,3 @@ client.on("message", async message => {
     updateMessage(channel, message, topOutput);
     }
   });
-});
