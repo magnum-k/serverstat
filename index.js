@@ -5,7 +5,7 @@ const config = require("./config.json");
 const intents = Discord.Intents.FLAGS.GUILDS | Discord.Intents.FLAGS.GUILD_MEMBERS;
 
 const client = new Discord.Client({
-  intents: intents
+  ws: { intents: intents }
 });
 
 client.on("ready", async () => {
