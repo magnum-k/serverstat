@@ -1,5 +1,4 @@
 const Discord = require("discord.js");
-const client = new Discord.Client();
 const { updateMessage } = require("./system-usage");
 const config = require("./config.json");
 
