@@ -4,7 +4,7 @@ const { Client, GatewayIntentBits, Collection } = require('discord.js');
 const { updateMessage } = require("./system-usage");
 const config = require("./config.json");
 
-const client = new Client({ intents: [GatewayIntentBits.GUILDS] });
+const client = new Client({ intents: [Intents.ALL] });
 
 client.login(config.token);
 
