@@ -1,19 +1,17 @@
-const fs = require('node:fs');
-const path = require('node:path');
+const fs = require('fs');
+const path = require('path');
 const { Client, GatewayIntentBits, Collection } = require('discord.js');
 const { updateMessage } = require("./system-usage");
 const config = require("./config.json");
 
-
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
-const guild = client.guilds.get(config.guildId);
+const client = new Client({ intents: [GatewayIntentBits.GUILDS] });
 
 client.login(config.token);
 
 client.on("ready", async () => {
-  const guild = client.guilds.get(config.guildId);
+  const guild = client.guilds.cache.get(config.guildId);
   if (!guild) return;
-  const channel = guild.channels.find(channel => channel.name === config.channelName);
+  const channel = guild.channels.cache.find(channel => channel.name === config.channelName);
   if (!channel) return;
 
   // Send the initial message and save the message ID
