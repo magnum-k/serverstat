@@ -25,12 +25,13 @@ client.on("ready", async () => {
     if (!topOutput) return;
     updateMessage(channel, message, topOutput);
   }, 15 * 60 * 1000);
-  
-  client.on("message", async message => {
-    if (message.content === config.updateCommand) {
-      const topOutput = await updateMessage(client);
-      if (!topOutput) return;
-      updateMessage(channel, message, topOutput);
+});
+
+client.on("message", async message => {
+  if (message.content === config.updateCommand) {
+    const topOutput = await updateMessage(client);
+    if (!topOutput) return;
+    updateMessage(channel, message, topOutput);
     }
   });
 });
