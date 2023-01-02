@@ -1,12 +1,13 @@
 const fs = require('fs');
 const path = require('path');
-const { Client, GatewayIntentBits, Collection } = require('discord.js');
+const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
 const { updateMessage } = require("./system-usage");
 const config = require("./config.json");
+const { token } = require('./config.json');
 
-const client = new Client({ intents: [GatewayIntentBits.GUILDS] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
-client.login(config.token);
+client.login(token);
 
 client.on("ready", async () => {
   const guild = client.guilds.cache.get(config.guildId);
