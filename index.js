@@ -3,7 +3,8 @@ const { updateMessage } = require("./system-usage");
 const config = require("./config.json");
 
 const { Intents } = require("discord.js");
-const intents = Intents.GUILDS | Intents.GUILD_MEMBERS;
+const intents = new Discord.Intents();
+intents.add(Discord.Intents.GUILDS, Discord.Intents.GUILD_MEMBERS);
 
 const client = new Discord.Client({ intents });
 
