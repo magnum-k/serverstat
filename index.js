@@ -24,7 +24,7 @@ client.on('message', message => {
     const totalCpuUsage = os.cpus().length;
     const top5Processes = getTop5Processes();
 
-    const embed.message = new Embedbuilder()
+    const embed = new EmbedBuilder()
       .setTitle('System Usage')
       .addFields(
         { name: 'Total CPU Usage', value: totalCpuUsage, inline: true },
@@ -32,7 +32,7 @@ client.on('message', message => {
         { name: 'Top 5 Processes', value: top5Processes, inline: false }
       );
 
-    channel.send({ embeds: [embed.message] });
+    channel.send({ embeds: [embed] });
   }
 });
 
