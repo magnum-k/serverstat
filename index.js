@@ -3,7 +3,7 @@ const path = require('path');
 const { token } = require('./config.json');
 const { updateMessage } = require("./system-usage");
 
-const { Client, GatewayIntentBits } = require('discord.js')
+const { Client, GatewayIntentBits, Collection } = require('discord.js')
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
