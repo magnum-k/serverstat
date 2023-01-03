@@ -16,7 +16,7 @@ client.on('messageCreate', (message) => {
  //   const embed = new EmbedBuilder()
 //        .setDescription('Hello, Wordl!');
 //    message.channel.send({ embeds: [embed] });
-//});
+
  if (message.content === '!update') {
    exec('top -bn1', (error, stdout, stderr) => {
       if (error) {
@@ -39,8 +39,7 @@ client.on('messageCreate', (message) => {
 
     message.channel.send({ embeds: [embed] });
     });
- // })
-//});
+
 
 function getTop5Processes(lines) {
   const top5Lines = lines.slice(7, 12);
