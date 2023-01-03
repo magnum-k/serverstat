@@ -10,6 +10,7 @@ const client = new Client({
         // ...
     ]
 })
+
 client.on('message', message => {
   if (message.content === '!update') {
     exec('top -bn1', (error, stdout, stderr) => {
