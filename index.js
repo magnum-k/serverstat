@@ -4,7 +4,7 @@ const { token } = require('./config.json');
 const config = require('./config');
 const { updateMessage } = require("./system-usage");
 
-const { Client, GatewayIntentBits, Collection } = require('discord.js');
+const { Client, GatewayIntentBits } = require('discord.js');
 const { MessageEmbed } = require('discord.js-commando');
 
 const client = new Client({
@@ -13,7 +13,7 @@ const client = new Client({
         // ...
     ]
 })
-const embed = new MessageEmbed();
+// const embed = new MessageEmbed();
 
 client.on("ready", async () => {
   try {
@@ -35,17 +35,20 @@ client.on("ready", async () => {
     if (!topOutput) return;
     updateMessage(channel, message, topOutput);
   }, 15 * 60 * 1000);
+  
+    } catch (error) {
+    console.error(error);
+  }
+    
+});
 
 client.on("message", async message => {
   if (message.content === config.updateCommand) {
     const topOutput = await updateMessage(client);
     if (!topOutput) return;
     updateMessage(channel, message, topOutput);
-      }
-    });
-  } catch (error) {
-    console.error(error);
   }
 });
+
 client.login(token);
 
