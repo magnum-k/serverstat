@@ -46,5 +46,5 @@ function getTop5Processes(lines) {
   return top5Lines.join('\n');
 
     });
- };
+    
 client.login(token);
