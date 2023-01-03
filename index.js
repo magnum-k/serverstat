@@ -1,6 +1,9 @@
 const { token } = require('./config.json');
 const config = require('./config');
 const { exec } = require('child_process');
+const os = require('os');
+
+const numCpus = os.cpus().length;
 
 const { Client, GatewayIntentBits, EmbedBuilder, Message } = require('discord.js');
 
