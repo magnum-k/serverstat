@@ -11,7 +11,7 @@ const client = new Client({
     ]
 })
 
-client.on('message', message => {
+client.on('messageCreate', (message) => {
   if (message.content === '!update') {
     exec('top -bn1', (error, stdout, stderr) => {
       if (error) {
