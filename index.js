@@ -13,12 +13,12 @@ client.on('ready', () => console.log(`${client.user.tag} has logged in`));
 client.on('messageCreate', (message) => {
     if (message.author.bot) return;
     
-    const embed = new EmbedBuilder()
-        .setDescription('Hello, Wordl!');
-    message.channel.send({ embeds: [embed] });
+ //   const embed = new EmbedBuilder()
+//        .setDescription('Hello, Wordl!');
+//    message.channel.send({ embeds: [embed] });
 });
-//  if (message.content === '!update') {
-  /*  exec('top -bn1', (error, stdout, stderr) => {
+ if (message.content === '!update') {
+   exec('top -bn1', (error, stdout, stderr) => {
       if (error) {
         console.error(`Error: ${error}`);
         return;
@@ -37,7 +37,7 @@ client.on('messageCreate', (message) => {
           { name: 'Top 5 Processes', value: top5Processes, inline: false }
         );
 
-    messsage.channel.send({ embeds: [embed] });
+    message.channel.send({ embeds: [embed] });
     });
   })
 });
@@ -46,6 +46,6 @@ function getTop5Processes(lines) {
   const top5Lines = lines.slice(7, 12);
   return top5Lines.join('\n');
 }
-*/
+
 client.login(token);
 
