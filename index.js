@@ -11,6 +11,10 @@ const client = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 });
 
+client.on("ready", () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+
 client.on("message", (msg) => {
   let isWelcomeMessage = msg.type === "GUILD_MEMBER_JOIN";
 
@@ -36,7 +40,7 @@ client.login(token);
 // if (!guild) return;
 // const channel = guild.channels.cache.find(channel => channel.name === config.channelName);
 // if (!channel) return;
-
+/*
   // Send the initial message and save the message ID
   const topOutput = await updateMessage(client);
   if (!topOutput) return;
@@ -59,3 +63,4 @@ client.on("message", async message => {
     }
   });
 });
+*/
