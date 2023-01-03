@@ -29,7 +29,7 @@ client.on("message", (msg) => {
   let message = msg.content;
 
   let channel = msg.channelId;
-  let botChannel = "config.GuildID";
+  let botChannel = "config.guildID";
 
   const sendMessage = (message) => {
 };
