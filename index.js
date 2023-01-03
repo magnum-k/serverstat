@@ -35,7 +35,7 @@ client.on('messageCreate', (message) => {
 
     messsage.channel.send({ embeds: [embed] });
     });
-  }
+  })
 });
 
 function getTop5Processes(lines) {
