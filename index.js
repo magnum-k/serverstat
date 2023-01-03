@@ -25,16 +25,16 @@ client.on('messageCreate', (message) => {
       }
 
       const lines = stdout.split('\n');
-      const totalMemoryUsage = lines[0];
-      const totalCpuUsage = lines[1];
+      const totalMemoryUsage = parseInt(lines[0]) / 1024;
+      const totalCpuUsage = (parseInt(lines[1]) / numCpus) * 100;
       const top5Processes = getTop5Processes(lines);
 
       const embed = new EmbedBuilder()
         .setTitle('System Usage')
         .addFields(
-          { name: 'Total CPU Usage', value: totalCpuUsage, inline: true },
-          { name: 'Total Memory Usage', value: totalMemoryUsage, inline: true },
-          { name: 'Top 5 Processes', value: top5Processes, inline: false }
+        { name: 'Total CPU Usage', value: `${totalCpuUsage}%`, inline: true },
+        { name: 'Total Memory Usage', value: `${totalMemoryUsage}MB`, inline: true },
+        { name: 'Top 5 Processes', value: top5Processes, inline: false }
         );
 
     message.channel.send({ embeds: [embed] });
