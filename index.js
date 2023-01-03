@@ -32,7 +32,7 @@ client.on("message", (msg) => {
   let botChannel = "config.guildID";
 
   const sendMessage = (message) => {
-};
+});
 client.login(token);
 
 // client.on("ready", async () => {
