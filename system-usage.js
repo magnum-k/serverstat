@@ -33,7 +33,7 @@ const updateMessage = async (client, message) => {
       )
       .addField('Top 5 Processes:', top5Processes)
 
-    message.edit(embed)
+    message.edit({ embeds: [embed] });
   })
 }
 
