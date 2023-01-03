@@ -24,7 +24,7 @@ const updateMessage = async (client, message) => {
       .map((p) => `${p.pid} ${p.user} ${p.cpu} ${p.mem} ${p.command}`)
       .join('\n')
 
-    const embed = new Discord.MessageEmbed()
+    const embed = new EmbedBuilder()
       .setColor('#0099ff')
       .setTitle('System Usage')
       .addFields(
