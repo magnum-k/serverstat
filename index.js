@@ -16,7 +16,7 @@ client.on('messageCreate', (message) => {
     const embed = new EmbedBuilder()
         .setDescription('Hello, Wordl!');
     channel.send({ embeds: [embed] });
-//});
+});
 //  if (message.content === '!update') {
   /*  exec('top -bn1', (error, stdout, stderr) => {
       if (error) {
