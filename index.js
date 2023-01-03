@@ -32,7 +32,7 @@ client.on('messageCreate', (message) => {
           { name: 'Top 5 Processes', value: top5Processes, inline: false }
         );
 
-    channel.send({ embeds: [embed] });
+    messsage.channel.send({ embeds: [embed] });
     });
   }
 });
