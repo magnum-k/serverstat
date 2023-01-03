@@ -12,7 +12,8 @@ const client = new Client({
 })
 
 client.on('messageCreate', (message) => {
-  if (message.content === '!update') {
+    if (message.author.bot) return;
+//  if (message.content === '!update') {
     exec('top -bn1', (error, stdout, stderr) => {
       if (error) {
         console.error(`Error: ${error}`);
