@@ -3,6 +3,7 @@ const path = require('path');
 const { token } = require('./config.json');
 const config = require('./config');
 const { updateMessage } = require("./system-usage");
+const os = require('os');
 
 const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
 
