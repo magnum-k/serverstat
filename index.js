@@ -1,19 +1,41 @@
 const fs = require('fs');
 const path = require('path');
-const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
+const { Client, Collection, Events, GatewayIntentBits, Intents } = require('discord.js');
 const { updateMessage } = require("./system-usage");
 const config = require("./config.json");
 const { token } = require('./config.json');
 
-const client = new Client({ intents: [GatewayIntentBits.Guild] });
+// const client = new Client({ intents: [GatewayIntentBits.Guild] });
+
+const client = new Client({
+  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+});
+
+client.on("message", (msg) => {
+  let isWelcomeMessage = msg.type === "GUILD_MEMBER_JOIN";
+
+  if (isWelcomeMessage) {
+    msg.author.send(`Welcome to the server, ${msg.author.username}!`);
+    client.channels.cache
+      .get("969519390951366676")
+      .send(`${msg.author.username} has joined the server!`);
+  }
+
+  let prefix = "!";
+  let message = msg.content;
+
+  let channel = msg.channelId;
+  let botChannel = "968539510923210795";
+
+  const sendMessage = (message) => {
 
 client.login(token);
 
-client.on("ready", async () => {
-  const guild = client.guild.cache.get(config.guildId);
-  if (!guild) return;
-  const channel = guild.channels.cache.find(channel => channel.name === config.channelName);
-  if (!channel) return;
+// client.on("ready", async () => {
+// const guild = client.guild.cache.get(config.guildId);
+// if (!guild) return;
+// const channel = guild.channels.cache.find(channel => channel.name === config.channelName);
+// if (!channel) return;
 
   // Send the initial message and save the message ID
   const topOutput = await updateMessage(client);
