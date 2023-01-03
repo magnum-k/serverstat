@@ -11,7 +11,7 @@ const client = new Client({
 client.on('ready', () => console.log(`${client.user.tag} has logged in`));
 
 client.on('messageCreate', (message) => {
-    if (message.author.bot) return;
+  //  if (message.author.bot) return;
     
  //   const embed = new EmbedBuilder()
 //        .setDescription('Hello, Wordl!');
