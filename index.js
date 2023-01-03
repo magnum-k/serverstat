@@ -20,7 +20,7 @@ client.on("message", (msg) => {
   if (isWelcomeMessage) {
     msg.author.send(`Welcome to the server, ${msg.author.username}!`);
     client.channels.cache
-      .get("config.guildId")
+      .get("1059518316084998254")
       .send(`${msg.author.username} has joined the server!`);
   }
 
@@ -28,7 +28,7 @@ client.on("message", (msg) => {
   let message = msg.content;
 
   let channel = msg.channelId;
-  let botChannel = "config.guildId";
+  let botChannel = "1059518316084998254";
   
     const sendMessage = (message) => {
     client.channels.cache.get(botChannel).send(message);
