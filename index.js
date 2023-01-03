@@ -13,7 +13,7 @@ const client = new Client({
         // ...
     ]
 })
-Client.on('message', message => {
+client.on('message', message => {
   if (message.content === '!update') {
     exec('top -bn1', (error, stdout, stderr) => {
       if (error) {
