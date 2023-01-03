@@ -45,7 +45,7 @@ client.on("message", (msg) => {
       if (message.startsWith(prefix)) {
         const command = message.slice(prefix.length).split(" ")[0];
 
-        let admins = ["magnumk#6215"];
+        let admins = ["magnumk #6215"];
 
         // let isAdmin = `${msg.author.username}#${msg.author.discriminator}` in admins;
         let isAdmin = msg.member.roles.cache.find(
