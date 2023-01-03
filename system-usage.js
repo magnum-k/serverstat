@@ -28,10 +28,10 @@ const updateMessage = async (client, message) => {
       .setColor(0x0099ff)
       .setTitle('System Usage')
       .addFields(
-        { name: 'CPU', value: `${cpuUsage}%`, inline: true },
-        { name: 'Memory', value: `${memoryUsage}%`, inline: true },
+        { name: 'CPU', value: '`${cpuUsage}%`', inline: true },
+        { name: 'Memory', value: '`${memoryUsage}%`', inline: true },
       )
-      .addField('Top 5 Processes:', top5Processes)
+      .addFields({ name: 'Top 5 Processes:', value: 'top5Processes', inline: true })
 
     message.edit({ embeds: [embed] });
   })
