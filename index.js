@@ -4,8 +4,8 @@ const { token } = require('./config.json');
 const config = require('./config');
 const { updateMessage } = require("./system-usage");
 
-const { Client, GatewayIntentBits, Collection } = require('discord.js')
-const { MessageEmbed } = require('discord.js-commando').MessageEmbed;
+const { Client, GatewayIntentBits, Collection } = require('discord.js');
+const { MessageEmbed } = require('discord.js-commando');
 
 const client = new Client({
     intents: [
