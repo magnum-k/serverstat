@@ -25,7 +25,7 @@ const updateMessage = async (client, message) => {
       .join('\n')
 
     const embed = new EmbedBuilder()
-      .setColor('#0099ff')
+      .setColor(#0099ff)
       .setTitle('System Usage')
       .addFields(
         { name: 'CPU', value: `${cpuUsage}%`, inline: true },
