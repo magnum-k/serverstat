@@ -48,4 +48,4 @@ function getTop5Processes(lines) {
 
 client.login(token);
 
-}
+};
