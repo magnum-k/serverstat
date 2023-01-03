@@ -13,10 +13,10 @@ client.on('ready', () => console.log(`${client.user.tag} has logged in`));
 client.on('messageCreate', (message) => {
     if (message.author.bot) return;
     
-    message.channel.send({
-        embeds: [new EmbedBuilder().SetDescription('Hello, Wordl!')],
-    });
-});
+    const embed = new EmbedBuilder()
+        .setDescription('Hello, Wordl!');
+    channel.send({ embeds: [embed] });
+//});
 //  if (message.content === '!update') {
   /*  exec('top -bn1', (error, stdout, stderr) => {
       if (error) {
