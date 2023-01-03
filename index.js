@@ -29,10 +29,6 @@ client.on("message", (msg) => {
   let message = msg.content;
 
   let channel = msg.channelId;
-  let botChannel = "config.guildID";
-
-  const sendMessage = (message) => {
-    client.channels.cache.get(botChannel).send(message);
-  };
+  let botChannel = "config.guildId";
   
 client.login(token);
