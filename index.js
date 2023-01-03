@@ -24,7 +24,7 @@ client.on('messageCreate', (message) => {
       const totalCpuUsage = lines[1];
       const top5Processes = getTop5Processes(lines);
 
-      const embed = new Discord.MessageEmbed()
+      const embed = new EmbedBuilder()
         .setTitle('System Usage')
         .addFields(
           { name: 'Total CPU Usage', value: totalCpuUsage, inline: true },
