@@ -5,18 +5,22 @@ const config = require('./config');
 const { updateMessage } = require("./system-usage");
 
 const { Client, GatewayIntentBits, Collection } = require('discord.js')
+const { MessageEmbed } = require('discord.js-commando');
+
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
         // ...
     ]
 })
+const embed = new MessageEmbed();
 
 client.on("ready", async () => {
-  const guild = client.guilds.cache.get(config.guildId);
-  if (!guild) return;
-  const channel = guild.channels.cache.find(channel => channel.name === config.channelName);
-  if (!channel) return;
+  try {
+    const guild = client.guilds.cache.get(config.guildId);
+    if (!guild) return;
+    const channel = guild.channels.cache.find(channel => channel.name === config.channelName);
+    if (!channel) return;
 
   // Send the initial message and save the message ID
   const topOutput = await updateMessage(client);
@@ -37,9 +41,11 @@ client.on("message", async message => {
     const topOutput = await updateMessage(client);
     if (!topOutput) return;
     updateMessage(channel, message, topOutput);
-    }
-  });
-});
+      }
+    });
+  } catch (error) {
+    console.error(error);
+  }
 
 client.login(token);
 
