@@ -2,7 +2,7 @@ const { token } = require('./config.json');
 const config = require('./config');
 const { exec } = require('child_process');
 
-const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
+const { Client, GatewayIntentBits, EmbedBuilder, Message } = require('discord.js');
 
 const client = new Client({
     intents: [
