@@ -1,6 +1,6 @@
 const { exec } = require('child_process')
 const Discord = require('discord.js')
-const { MessageEmbed } = require('discord.js-commando');
+const { EmbedBuilder } = require('discord.js');
 
 const updateMessage = async (client, message) => {
   const command = 'top -b -n1'
