@@ -21,7 +21,7 @@ client.on("message", (msg) => {
   if (isWelcomeMessage) {
     msg.author.send(`Welcome to the server, ${msg.author.username}!`);
     client.channels.cache
-      .get("config.guildID")
+      .get("config.guildId")
       .send(`${msg.author.username} has joined the server!`);
   }
 
