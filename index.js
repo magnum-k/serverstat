@@ -39,7 +39,7 @@ client.on('messageCreate', (message) => {
 
     message.channel.send({ embeds: [embed] });
     });
-  })
+ // })
 });
 
 function getTop5Processes(lines) {
