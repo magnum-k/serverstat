@@ -13,8 +13,13 @@ const client = new Client({
 
 client.on('messageCreate', (message) => {
     if (message.author.bot) return;
+    
+    message.channel.send({
+        embeds: [new EmbedBuilder().SetDescription('Hello, Wordl!')],
+    });
+});
 //  if (message.content === '!update') {
-    exec('top -bn1', (error, stdout, stderr) => {
+  /*  exec('top -bn1', (error, stdout, stderr) => {
       if (error) {
         console.error(`Error: ${error}`);
         return;
@@ -42,6 +47,6 @@ function getTop5Processes(lines) {
   const top5Lines = lines.slice(7, 12);
   return top5Lines.join('\n');
 }
-
+*/
 client.login(token);
 
