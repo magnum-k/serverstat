@@ -12,42 +12,35 @@ const client = new Client({
         // ...
     ]
 })
-const embed = new EmbedBuilder();
 
-client.on("ready", async () => {
-  try {
-    const guild = client.guilds.cache.get(config.guildId);
-    if (!guild) return;
-    const channel = guild.channels.cache.find(channel => channel.name === config.channelName);
-    if (!channel) return;
+const client = new Discord.Client();
 
-  // Send the initial message and save the message ID
-  const topOutput = await updateMessage(message);
-  if (!topOutput) return;
-  const message = await channel.send({ embeds: [topOutput] });
-  if (!message) return;
-  const messageId = message.id;
-
-  // Update the message every 15 minutes
-  setInterval(async () => {
-    const topOutput = await updateMessage(client);
-    if (!topOutput) return;
-    updateMessage(channel, message, topOutput);
-  }, 15 * 60 * 1000);
-  
-    } catch (error) {
-    console.error(error);
-  }
-    
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.on("message", async message => {
-  if (message.content === config.updateCommand) {
-    const topOutput = await updateMessage(client);
-    if (!topOutput) return;
-    updateMessage(channel, message, topOutput);
+client.on('message', message => {
+  if (message.content === '!update') {
+    const totalMemoryUsage = os.totalmem();
+    const totalCpuUsage = os.cpus().length;
+    const top5Processes = getTop5Processes();
+
+    const embed.message = new Embedbuilder()
+      .setTitle('System Usage')
+      .addFields(
+        { name: 'Total CPU Usage', value: totalCpuUsage, inline: true },
+        { name: 'Total Memory Usage', value: totalMemoryUsage, inline: true },
+        { name: 'Top 5 Processes', value: top5Processes, inline: false }
+      );
+
+    channel.send({ embeds: [embed.message] });
   }
 });
+
+function getTop5Processes() {
+  // TODO: Implement this function
+  return 'Not implemented';
+}
 
 client.login(token);
 
