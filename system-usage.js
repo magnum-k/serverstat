@@ -31,7 +31,7 @@ const updateMessage = async (client, message) => {
         { name: 'CPU', value: '`${cpuUsage}%`', inline: true },
         { name: 'Memory', value: '`${memoryUsage}%`', inline: true },
       )
-      .addFields({ name: 'Top 5 Processes:', value: 'top5Processes', inline: true })
+      .addFields({ name: 'Top 5 Processes:', value: 'top5Processes', inline: true });
 
     message.edit({ embeds: [embed] });
   })
