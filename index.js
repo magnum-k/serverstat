@@ -24,7 +24,7 @@ client.on("ready", async () => {
   // Send the initial message and save the message ID
   const topOutput = await updateMessage(client);
   if (!topOutput) return;
-  const message = await channel.send("", { embed: topOutput });
+  const message = await channel.send({ embeds: [topOutput] });
   if (!message) return;
   const messageId = message.id;
 
