@@ -3,7 +3,7 @@ const path = require('path');
 const { token } = require('./config.json');
 const config = require('./config');
 const { updateMessage } = require("./system-usage");
-const os = require('os');
+const { exec } = require('child_process');
 
 const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
 
@@ -13,32 +13,35 @@ const client = new Client({
         // ...
     ]
 })
-
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
-
-client.on('message', message => {
+lient.on('message', message => {
   if (message.content === '!update') {
-    const totalMemoryUsage = os.totalmem();
-    const totalCpuUsage = os.cpus().length;
-    const top5Processes = getTop5Processes();
+    exec('top -bn1', (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error: ${error}`);
+        return;
+      }
 
-    const embed = new EmbedBuilder()
-      .setTitle('System Usage')
-      .addFields(
-        { name: 'Total CPU Usage', value: totalCpuUsage, inline: true },
-        { name: 'Total Memory Usage', value: totalMemoryUsage, inline: true },
-        { name: 'Top 5 Processes', value: top5Processes, inline: false }
-      );
+      const lines = stdout.split('\n');
+      const totalMemoryUsage = lines[0];
+      const totalCpuUsage = lines[1];
+      const top5Processes = getTop5Processes(lines);
+
+      const embed = new Discord.MessageEmbed()
+        .setTitle('System Usage')
+        .addFields(
+          { name: 'Total CPU Usage', value: totalCpuUsage, inline: true },
+          { name: 'Total Memory Usage', value: totalMemoryUsage, inline: true },
+          { name: 'Top 5 Processes', value: top5Processes, inline: false }
+        );
 
     message.channel.send({ embeds: [embed] });
+    });
   }
 });
 
-function getTop5Processes() {
-  // TODO: Implement this function
-  return 'Not implemented';
+function getTop5Processes(lines) {
+  const top5Lines = lines.slice(7, 12);
+  return top5Lines.join('\n');
 }
 
 client.login(token);
