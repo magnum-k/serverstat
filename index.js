@@ -5,11 +5,10 @@ const { exec } = require('child_process');
 const { Client, GatewayIntentBits, EmbedBuilder, Message } = require('discord.js');
 
 const client = new Client({
-    intents: [
-        GatewayIntentBits.Guilds, GatewayIntentBits.MessageContent
-        // ...
-    ]
-})
+    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMessages,]
+});
+
+client.on('ready', () => console.log(`${client.user.tag} has logged in`));
 
 client.on('messageCreate', (message) => {
     if (message.author.bot) return;
