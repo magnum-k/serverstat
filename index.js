@@ -9,7 +9,7 @@ const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
 
 const client = new Client({
     intents: [
-        GatewayIntentBits.Guilds,
+        GatewayIntentBits.Guilds, GatewayIntentsBits.MessageContent
         // ...
     ]
 })
@@ -32,7 +32,7 @@ client.on('message', message => {
         { name: 'Top 5 Processes', value: top5Processes, inline: false }
       );
 
-    channel.send({ embeds: [embed] });
+    message.channel.send({ embeds: [embed] });
   }
 });
 
