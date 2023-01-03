@@ -34,7 +34,7 @@ client.on("message", (msg) => {
     client.channels.cache.get(botChannel).send(message);
   };
 
-  if (msg.author.username !== "IKeepTheBugsAway") {
+  if (msg.author.username !== "Server-stats") {
     if (message.includes("no")) {
       msg.delete();
       sendMessage(`${msg.author.username} said no!`);
