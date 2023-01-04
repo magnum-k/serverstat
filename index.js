@@ -43,8 +43,8 @@ exec('free -m', (error, stdout, stderr) => {
 
         // Calculate the total memory usage in percent
   const memoryUsageLines = stdout.split('\n');
-  const totalMemory = parseInt(memoryUsageLines[1].split(' ')[1]);
-  const usedMemory = parseInt(memoryUsageLines[2].split(' ')[2]);
+  const totalMemory = parseInt(memoryUsageLines[1].match(/(\d+)/g)[0]);
+  const usedMemory = parseInt(memoryUsageLines[1].match(/(\d+)/g)[1]);
   const totalMemoryUsage = ((usedMemory / totalMemory) * 100).toFixed(2);
 
       const embed = new EmbedBuilder()
