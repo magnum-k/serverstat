@@ -74,8 +74,7 @@ exec('free -m', (error, stdout, stderr) => {
           { name: 'Total CPU Usage', value: `${totalCpuUsage}%`, inline: true },
           { name: 'Total Memory Usage', value: `${totalMemoryUsage}% (Tot:${totalMemoryMb} Gb)`, inline: true })
         .addFields(
-          { name: 'Top 5 Processes:', value: 'top5Processes', inline: true },  
-        );
+          { name: 'Top 5 Processes:', value: 'top5Processes', inline: true });
 
       message.channel.send({ embeds: [embed] });
     });
