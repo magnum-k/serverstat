@@ -46,13 +46,13 @@ exec('free -m', (error, stdout, stderr) => {
   const totalMemory = parseInt(memoryUsageLines[1].match(/(\d+)/g)[0]);
   const usedMemory = parseInt(memoryUsageLines[1].match(/(\d+)/g)[1]);
   const totalMemoryUsage = ((usedMemory / totalMemory) * 100).toFixed(2);
-  const totalMemoryMb = (totalMemory * 1024);
+  const totalMemoryMb = (totalMemory / 1024);
 
       const embed = new EmbedBuilder()
         .setTitle('System Usage')
         .addFields(
           { name: 'Total CPU Usage', value: `${totalCpuUsage}%`, inline: true },
-          { name: 'Total Memory Usage', value: `${totalMemoryUsage}% (${totalMemoryMb})`, inline: true }
+          { name: 'Total Memory Usage', value: `${totalMemoryUsage}% (${totalMemoryMb}Mb)`, inline: true }
         );
 
       message.channel.send({ embeds: [embed] });
