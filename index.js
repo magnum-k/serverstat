@@ -46,7 +46,7 @@ exec('free -m', (error, stdout, stderr) => {
   const totalMemory = parseInt(memoryUsageLines[1].match(/(\d+)/g)[0]);
   const usedMemory = parseInt(memoryUsageLines[1].match(/(\d+)/g)[1]);
   const totalMemoryUsage = ((usedMemory / totalMemory) * 100).toFixed(2);
-  const totalMemoryMb = (totalMemory / 1024);
+  const totalMemoryMb = (totalMemory / 1024).toFixed(0);
 
       const embed = new EmbedBuilder()
         .setTitle('System Usage')
