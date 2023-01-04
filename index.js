@@ -26,7 +26,7 @@ if (error) {
 console.error(`Error: ${error}`);
 return;
 }
-
+    
 // Calculate the total CPU usage in percent
 const cpuUsageLines = stdout.split('\n').slice(1);
 let totalCpuUsage = 0;
@@ -35,6 +35,26 @@ totalCpuUsage += parseFloat(line.split(' ')[0]);
 });
 totalCpuUsage = (totalCpuUsage / numCpus).toFixed(2);
 
+  exec(top -b -n1', (error, stdout, stderr) => {
+    if (error) {
+      console.log(`error: ${error.message}`)
+      return
+    }
+    if (stderr) {
+      console.log(`stderr: ${stderr}`)
+      return
+    }
+
+    const { mem, cpu, processes } = parseTopOutput(stdout)
+
+    const memoryUsage = mem.used / mem.total * 100
+    const cpuUsage = cpu[0].idle / cpu[0].total * 100
+    const top5Processes = processes
+      .slice(0, 5)
+      .map((p) => `${p.pid} ${p.user} ${p.cpu} ${p.mem} ${p.command}`)
+      .join('\n')
+    
+    
 exec('free -m', (error, stdout, stderr) => {
   if (error) {
     console.error(`Error: ${error}`);
@@ -52,7 +72,9 @@ exec('free -m', (error, stdout, stderr) => {
         .setTitle('System Usage')
         .addFields(
           { name: 'Total CPU Usage', value: `${totalCpuUsage}%`, inline: true },
-          { name: 'Total Memory Usage', value: `${totalMemoryUsage}% (Tot:${totalMemoryMb} Gb)`, inline: true }
+          { name: 'Total Memory Usage', value: `${totalMemoryUsage}% (Tot:${totalMemoryMb} Gb)`, inline: true },
+        .addFields(
+          { name: 'Top 5 Processes:', value: 'top5Processes', inline: true },  
         );
 
       message.channel.send({ embeds: [embed] });
