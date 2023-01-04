@@ -23,7 +23,7 @@ client.on('messageCreate', (message) => {
 if (message.content === '!update') {
 exec('ps -Ao %cpu,%mem', (error, stdout, stderr) => {
 if (error) {
-console.error(Error: ${error});
+console.error(`Error: ${error}`);
 return;
 }
 
