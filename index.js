@@ -35,7 +35,7 @@ totalCpuUsage += parseFloat(line.split(' ')[0]);
 });
 totalCpuUsage = (totalCpuUsage / numCpus).toFixed(2);
 
-  exec(top -b -n1', (error, stdout, stderr) => {
+  exec('top -b -n1', (error, stdout, stderr) => {
     if (error) {
       console.log(`error: ${error.message}`)
       return
