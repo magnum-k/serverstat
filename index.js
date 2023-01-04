@@ -20,32 +20,32 @@ client.on('messageCreate', (message) => {
 //        .setDescription('Hello, Wordl!');
 //    message.channel.send({ embeds: [embed] });
 
- if (message.content === '!update') {
-  exec('ps -Ao %cpu,%mem', (error, stdout, stderr) => {
-    if (error) {
-      console.error(`Error: ${error}`);
-      return;
-    }
+if (message.content === '!update') {
+exec('ps -Ao %cpu,%mem', (error, stdout, stderr) => {
+if (error) {
+console.error(Error: ${error});
+return;
+}
 
-  // Calculate the total CPU usage in percent
-    const cpuUsageLines = stdout.split('\n').slice(1);
-    let totalCpuUsage = 0;
-    cpuUsageLines.forEach((line) => {
-      totalCpuUsage += parseFloat(line.split(' ')[0]);
-    });
-    totalCpuUsage = totalCpuUsage.toFixed(2);
+// Calculate the total CPU usage in percent
+const cpuUsageLines = stdout.split('\n').slice(1);
+let totalCpuUsage = 0;
+cpuUsageLines.forEach((line) => {
+totalCpuUsage += parseFloat(line.split(' ')[0]);
+});
+totalCpuUsage = (totalCpuUsage / numCpus).toFixed(2);
 
-    exec('free -m', (error, stdout, stderr) => {
-      if (error) {
-        console.error(`Error: ${error}`);
-        return;
-      }
+exec('free -m', (error, stdout, stderr) => {
+  if (error) {
+    console.error(`Error: ${error}`);
+    return;
+  }
 
-            // Calculate the total memory usage in percent
-      const memoryUsageLines = stdout.split('\n');
-      const totalMemory = parseInt(memoryUsageLines[1].split(' ')[1]);
-      const usedMemory = parseInt(memoryUsageLines[2].split(' ')[2]);
-      const totalMemoryUsage = ((usedMemory / totalMemory) * 100).toFixed(2);
+        // Calculate the total memory usage in percent
+  const memoryUsageLines = stdout.split('\n');
+  const totalMemory = parseInt(memoryUsageLines[1].split(' ')[1]);
+  const usedMemory = parseInt(memoryUsageLines[2].split(' ')[2]);
+  const totalMemoryUsage = ((usedMemory / totalMemory) * 100).toFixed(2);
 
       const embed = new EmbedBuilder()
         .setTitle('System Usage')
