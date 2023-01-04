@@ -7,3 +7,5 @@ node_modules/
 # Ignore a file called config.json and config.sh
 config.json
 config.sh
+/.vs/serverstat/FileContentIndex/407d4af9-96de-4343-8834-1c57e22e44e9.vsidx
+*.vsidx
