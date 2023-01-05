@@ -79,9 +79,10 @@ exec('free -m', (error, stdout, stderr) => {
       message.channel.send({ embeds: [embed] });
     });
 
-function getTop5Processes(lines) {
-  const top5Lines = lines.slice(7, 12);
-  return top5Lines.join('\n');
-};
-    
+/*function getTop5Processes(lines) {
+ // const top5Lines = lines.slice(7, 12);
+  // return top5Lines.join('\n');
+ };
+*/
+      
 client.login(token);
