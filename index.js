@@ -11,8 +11,6 @@ const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMessages,]
 });
 
-client.login(token);
-
 client.on('ready', () => console.log(`${client.user.tag} has logged in`));
 
 client.on('messageCreate', (message) => {
@@ -56,7 +54,8 @@ totalCpuUsage = (totalCpuUsage / numCpus).toFixed(2);
       .map((p) => `${p.pid} ${p.user} ${p.cpu} ${p.mem} ${p.command}`)
       .join('\n')
   */  
-    
+
+    //Run command to get free memory    
 exec('free -m', (error, stdout, stderr) => {
   if (error) {
     console.error(`Error: ${error}`);
@@ -70,6 +69,7 @@ exec('free -m', (error, stdout, stderr) => {
   const totalMemoryUsage = ((usedMemory / totalMemory) * 100).toFixed(2);
   const totalMemoryMb = (totalMemory / 1024).toFixed(0);
 
+        //Send the embeded message
       const embed = new EmbedBuilder()
         .setTitle('System Usage')
         .addFields(
@@ -87,4 +87,4 @@ exec('free -m', (error, stdout, stderr) => {
  };
 */
       
-
+client.login(token);
