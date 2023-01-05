@@ -47,7 +47,8 @@ exec('free -m', (error, stdout, stderr) => {
   const totalMemory = parseInt(memoryUsageLines[1].match(/(\d+)/g)[0]);
   const usedMemory = parseInt(memoryUsageLines[1].match(/(\d+)/g)[1]);
   const totalMemoryUsage = ((usedMemory / totalMemory) * 100).toFixed(2);
-  const totalMemoryMb = (totalMemory / 1024).toFixed(0);
+  const totalMemoryGb = (totalMemory / 1024).toFixed(0);
+  const usedMemoryGb = (usedMemory / 1024).toFixed(0);
     
         //Added new code to get top 5 processes
       const command = 'top -b -n1'
@@ -81,7 +82,7 @@ exec('free -m', (error, stdout, stderr) => {
         .setDescription('Total memory and CPU usage')
         .addFields(
           { name: 'Total CPU Usage', value: `${totalCpuUsage}%`, inline: true },
-          { name: 'Total Memory Usage', value: `${totalMemoryUsage}% (Tot:${totalMemoryMb} Gb)`, inline: true },
+          { name: 'Total Memory Usage', value: `${totalMemoryUsage}% ( | ${totalMemoryGb} Gb / ${usedMemoryGb} Gb)`, inline: true },
         )
           .addFields(
           { name: 'Top 5 processes', value: `${top5Processes}%`, inline: false }
