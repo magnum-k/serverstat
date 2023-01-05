@@ -74,12 +74,12 @@ exec('free -m', (error, stdout, stderr) => {
     
     exec('uptime -p', (error, stdout, stderr) => {
   if (error) {
-    console.error(`Error: ${error}`);
-    return;
+    console.error(`Error: ${error}`)
+    return
   }
   if (stderr) {
-    console.error(`Error: ${stderr}`);
-    return;
+    console.error(`Error: ${stderr}`)
+    return
   }
     const Uptime = (`Uptime: ${stdout}`); 
 });
