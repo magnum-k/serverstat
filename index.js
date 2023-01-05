@@ -27,7 +27,7 @@ console.error(`Error: ${error}`);
 return;
 }
 
-// Calculate the total CPU usage in percent
+    // Calculate the total CPU usage in percent
 const cpuUsageLines = stdout.split('\n').slice(1);
 let totalCpuUsage = 0;
 cpuUsageLines.forEach((line) => {
@@ -35,6 +35,7 @@ totalCpuUsage += parseFloat(line.split(' ')[0]);
 });
 totalCpuUsage = (totalCpuUsage / numCpus).toFixed(2);
 
+    //Run command to get free memory
 exec('free -m', (error, stdout, stderr) => {
   if (error) {
     console.error(`Error: ${error}`);
@@ -47,6 +48,32 @@ exec('free -m', (error, stdout, stderr) => {
   const usedMemory = parseInt(memoryUsageLines[1].match(/(\d+)/g)[1]);
   const totalMemoryUsage = ((usedMemory / totalMemory) * 100).toFixed(2);
   const totalMemoryMb = (totalMemory / 1024).toFixed(0);
+    
+        //Added new code to get top 5 processes
+      const command = 'top -b -n1'
+
+  exec(command, (error, stdout, stderr) => {
+    if (error) {
+      console.log(`error: ${error.message}`)
+      return
+    }
+    if (stderr) {
+      console.log(`stderr: ${stderr}`)
+      return
+    }
+
+    const { mem, cpu, processes } = parseTopOutput(stdout)
+
+    const memoryUsage = mem.used / mem.total * 100
+    const cpuUsage = cpu[0].idle / cpu[0].total * 100
+    const top5Processes = processes
+      .slice(0, 5)
+      .map((p) => `${p.pid} ${p.user} ${p.cpu} ${p.mem} ${p.command}`)
+      .join('\n')
+    
+    
+    
+    
 
       const embed = new EmbedBuilder()
         .setTitle('System Usage')
