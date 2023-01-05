@@ -95,7 +95,7 @@ exec('free -m', (error, stdout, stderr) => {
     });
   });
     
-    const parseTopOutput = (output) => {
+    const parseTopOutput = output => {
   const lines = output.split('\n')
 
   const mem = {
