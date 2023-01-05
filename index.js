@@ -79,11 +79,13 @@ exec('free -m', (error, stdout, stderr) => {
         .setTitle('System Usage')
         .addFields(
           { name: 'Total CPU Usage', value: `${totalCpuUsage}%`, inline: true },
-          { name: 'Total Memory Usage', value: `${totalMemoryUsage}% (Tot:${totalMemoryMb} Gb)`, inline: true },)
-          .addFields
-          ({ name: 'Top 5 processes', value: `${top5Processes}%`, inline: true })
-        );
-
+          { name: 'Total Memory Usage', value: `${totalMemoryUsage}% (Tot:${totalMemoryMb} Gb)`, inline: true },
+        )
+          .addFields(
+          { name: 'Top 5 processes', value: `${top5Processes}%`, inline: true }
+        )
+        .setTimestamp();
+        
       message.channel.send({ embeds: [embed] });
     });
   });
