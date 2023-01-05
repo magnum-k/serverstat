@@ -58,6 +58,42 @@ exec('free -m', (error, stdout, stderr) => {
       message.channel.send({ embeds: [embed] });
     });
   });
+    
+    const parseTopOutput = (output) => {
+  const lines = output.split('\n')
+
+  const mem = {
+    total: parseInt(lines[0].match(/\d+/g)[0]),
+    used: parseInt(lines[0].match(/\d+/g)[1]),
+  }
+
+  const cpu = lines[1]
+    .trim()
+    .split(',')
+    .map((u) => ({
+      user: parseInt(u.match(/\d+/g)[0]),
+      nice: parseInt(u.match(/\d+/g)[1]),
+      system: parseInt(u.match(/\d+/g)[2]),
+      idle: parseInt(u.match(/\d+/g)[3]),
+      total:
+        parseInt(u.match(/\d+/g)[0]) +
+        parseInt(u.match(/\d+/g)[1]) +
+        parseInt(u.match(/\d+/g)[2]) +
+        parseInt(u.match(/\d+/g)[3]),
+    }))
+
+  const processes = lines
+    .slice(7)
+    .map((l) => {
+      const [pid, user, cpu, mem, ...rest] = l.trim().split(/\s+/)
+      return { pid, user, cpu, mem, command: rest.join(' ') }
+    })
+
+  return { mem, cpu, processes }
+}
+    
+    
+    
 }
 
 function getTop5Processes(lines) {
