@@ -11,6 +11,8 @@ const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMessages,]
 });
 
+client.login(token);
+
 client.on('ready', () => console.log(`${client.user.tag} has logged in`));
 
 client.on('messageCreate', (message) => {
@@ -85,4 +87,4 @@ exec('free -m', (error, stdout, stderr) => {
  };
 */
       
-client.login(token);
+
