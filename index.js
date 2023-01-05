@@ -82,7 +82,7 @@ exec('free -m', (error, stdout, stderr) => {
         .setDescription('Total memory and CPU usage')
         .addFields(
           { name: 'Total CPU Usage', value: `${totalCpuUsage}%`, inline: true },
-          { name: 'Total Memory Usage', value: `${totalMemoryUsage}% ( | ${totalMemoryGb} Gb / ${usedMemoryGb} Gb)`, inline: true },
+          { name: 'Total Memory Usage', value: `${totalMemoryUsage}% | ${totalMemoryGb} Gb / ${usedMemoryGb} Gb`, inline: true },
         )
           .addFields(
           { name: 'Top 5 processes', value: `${top5Processes}%`, inline: false }
