@@ -118,7 +118,7 @@ exec('free -m', (error, stdout, stderr) => {
 
   return { mem, cpu, processes }
 }
-    
+    });
     
     
 }
