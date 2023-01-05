@@ -36,7 +36,7 @@ cpuUsageLines.forEach((line) => {
 totalCpuUsage += parseFloat(line.split(' ')[0]);
 });
 totalCpuUsage = (totalCpuUsage / numCpus).toFixed(2);
-
+/*
   exec('top -b -n1', (error, stdout, stderr) => {
     if (error) {
       console.log(`error: ${error.message}`)
@@ -55,7 +55,7 @@ totalCpuUsage = (totalCpuUsage / numCpus).toFixed(2);
       .slice(0, 5)
       .map((p) => `${p.pid} ${p.user} ${p.cpu} ${p.mem} ${p.command}`)
       .join('\n')
-    
+  */  
     
 exec('free -m', (error, stdout, stderr) => {
   if (error) {
