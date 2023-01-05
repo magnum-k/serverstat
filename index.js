@@ -40,11 +40,11 @@ totalCpuUsage = (totalCpuUsage / numCpus).toFixed(2);
   exec('top -b -n1', (error, stdout, stderr) => {
     if (error) {
       console.log(`error: ${error.message}`)
-      return
+      return;
     }
     if (stderr) {
       console.log(`stderr: ${stderr}`)
-      return
+      return;
     }
 
     const { mem, cpu, processes } = parseTopOutput(stdout)
