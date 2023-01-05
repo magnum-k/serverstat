@@ -69,7 +69,7 @@ exec('free -m', (error, stdout, stderr) => {
     const top5Processes = processes
       .slice(0, 5)
       .map((p) => `${p.pid} ${p.user} ${p.cpu} ${p.mem} ${p.command}`)
-      .join('\n')
+      .join('\n');
     
     
     
