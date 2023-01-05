@@ -81,7 +81,7 @@ exec('free -m', (error, stdout, stderr) => {
     console.error(`Error: ${stderr}`);
     return;
   }
-    const stdout = Uptime; 
+    const Uptime = ${stdout}; 
 });
     
     
