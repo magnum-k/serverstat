@@ -76,7 +76,9 @@ exec('free -m', (error, stdout, stderr) => {
     
 
       const embed = new EmbedBuilder()
+        .setColor(0x0099FF)
         .setTitle('System Usage')
+        .setDescription('Total memory and CPU usage')
         .addFields(
           { name: 'Total CPU Usage', value: `${totalCpuUsage}%`, inline: true },
           { name: 'Total Memory Usage', value: `${totalMemoryUsage}% (Tot:${totalMemoryMb} Gb)`, inline: true },
@@ -84,6 +86,7 @@ exec('free -m', (error, stdout, stderr) => {
           .addFields(
           { name: 'Top 5 processes', value: `${top5Processes}%`, inline: true }
         )
+        .setFooter({ text: '--', iconURL: 'https://www.dropbox.com/s/zis8oldi19r6thu/12G.png?dl=1' });
         .setTimestamp();
         
       message.channel.send({ embeds: [embed] });
