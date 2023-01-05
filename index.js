@@ -78,8 +78,6 @@ exec('free -m', (error, stdout, stderr) => {
 
       message.channel.send({ embeds: [embed] });
     });
-  });
-}
 
 function getTop5Processes(lines) {
   const top5Lines = lines.slice(7, 12);
