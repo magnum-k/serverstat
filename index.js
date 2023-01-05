@@ -86,7 +86,7 @@ exec('free -m', (error, stdout, stderr) => {
           .addFields(
           { name: 'Top 5 processes', value: `${top5Processes}%`, inline: true }
         )
-        .setTimestamp();
+        .setTimestamp()
         .setFooter({ text: '--', iconURL: 'https://www.dropbox.com/s/zis8oldi19r6thu/12G.png?dl=1' });
         
         
