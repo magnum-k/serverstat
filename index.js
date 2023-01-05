@@ -84,10 +84,10 @@ exec('free -m', (error, stdout, stderr) => {
           { name: 'Total Memory Usage', value: `${totalMemoryUsage}% (Tot:${totalMemoryMb} Gb)`, inline: true },
         )
           .addFields(
-          { name: 'Top 5 processes', value: `${top5Processes}%`, inline: true }
+          { name: 'Top 5 processes', value: `${top5Processes}%`, inline: false }
         )
         .setTimestamp()
-        .setFooter({ text: '--', iconURL: 'https://www.dropbox.com/s/zis8oldi19r6thu/12G.png?dl=1' });
+        .setFooter({ text: 'Timestamp:', iconURL: 'https://www.dropbox.com/s/zis8oldi19r6thu/12G.png?dl=1' });
         
         
       message.channel.send({ embeds: [embed] });
