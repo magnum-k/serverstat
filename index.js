@@ -73,8 +73,6 @@ exec('free -m', (error, stdout, stderr) => {
       .join('\n');
     
 
-let uptime;
-
 exec('uptime -p', (error, stdout, stderr) => {
   if (error) {
     console.error(`Error: ${error}`);
@@ -84,7 +82,8 @@ exec('uptime -p', (error, stdout, stderr) => {
     console.error(`Error: ${stderr}`);
     return;
   }
-  uptime = `Uptime: ${stdout}`;
+  const uptime = `Uptime: ${stdout}`;
+
 });
 
       const embed = new EmbedBuilder()
