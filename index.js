@@ -87,6 +87,7 @@ exec('uptime -p', (error, stdout, stderr) => {
   console.log(uptime);
 });
 
+const Uptime = uptime
 
       const embed = new EmbedBuilder()
         .setColor(0x0099FF)
