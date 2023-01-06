@@ -82,9 +82,9 @@ exec('uptime -p', (error, stdout, stderr) => {
     console.error(`Error: ${stderr}`);
     return;
   }
-  const uptime = stdout.split('\n');
+  const uptime = stdout;
 
-});
+// });
 
       const embed = new EmbedBuilder()
         .setColor(0x0099FF)
