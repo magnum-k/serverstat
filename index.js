@@ -72,18 +72,21 @@ exec('free -m', (error, stdout, stderr) => {
       .map((p) => `${p.pid} ${p.user} ${p.cpu} ${p.mem} ${p.command}`)
       .join('\n');
     
-let Uptime
+let uptime;
+
 exec('uptime -p', (error, stdout, stderr) => {
   if (error) {
-    console.error(`Error: ${error}`)
-    return
+    console.error(`Error: ${error}`);
+    return;
   }
   if (stderr) {
-    console.error(`Error: ${stderr}`)
-    return
+    console.error(`Error: ${stderr}`);
+    return;
   }
-  Uptime = (`Uptime: ${stdout}`)
-}); 
+  uptime = `Uptime: ${stdout}`;
+});
+
+console.log(uptime);
 
     
 
@@ -96,7 +99,7 @@ exec('uptime -p', (error, stdout, stderr) => {
           { name: 'Total Memory Usage', value: `${totalMemoryUsage}% | ${totalMemoryGb} Gb / ${usedMemoryGb} Gb`, inline: true },
         )
           .addFields(
-          { name: 'Top 5 processes', value: `${Uptime}`, inline: false }
+          { name: 'Top 5 processes', value: `${uptime}`, inline: false }
         )
         .setTimestamp()
         .setFooter({ text: 'Timestamp:', iconURL: 'https://www.dropbox.com/s/zis8oldi19r6thu/12G.png?dl=1' });
