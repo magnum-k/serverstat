@@ -88,8 +88,6 @@ exec('uptime -p', (error, stdout, stderr) => {
   console.log(uptime);
 
 
-const Uptime = uptime;
-
 
       const embed = new EmbedBuilder()
         .setColor(0x0099FF)
@@ -100,7 +98,7 @@ const Uptime = uptime;
           { name: 'Total Memory Usage', value: `${totalMemoryUsage}% | ${totalMemoryGb} Gb / ${usedMemoryGb} Gb`, inline: true },
         )
           .addFields(
-          { name: 'Top 5 processes', value: `${Uptime}`, inline: false }
+          { name: 'Top 5 processes', value: `${uptime}`, inline: false }
         )
         .setTimestamp()
         .setFooter({ text: 'Timestamp:', iconURL: 'https://www.dropbox.com/s/zis8oldi19r6thu/12G.png?dl=1' });
