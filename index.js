@@ -82,7 +82,7 @@ exec('uptime -p', (error, stdout, stderr) => {
     console.error(`Error: ${stderr}`);
     return;
   }
-  const uptime = stdout;
+  const uptime = 'stdout';
 
  });
 
