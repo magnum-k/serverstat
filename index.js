@@ -72,7 +72,7 @@ exec('free -m', (error, stdout, stderr) => {
       .map((p) => `${p.pid} ${p.user} ${p.cpu} ${p.mem} ${p.command}`)
       .join('\n');
     
-/*
+
 exec('uptime -p', (error, stdout, stderr) => {
   if (error) {
     console.error(`Error: ${error}`);
@@ -82,13 +82,13 @@ exec('uptime -p', (error, stdout, stderr) => {
     console.error(`Error: ${stderr}`);
     return;
   }
-  
+  /*
   if (stdout) {
       console.log(`Uptime: ${stdout}`);
       return;
   }
   const uptime = 'stdout';
-
+  */
 
 if (stdout) {
       const uptime = stdout;
@@ -96,7 +96,7 @@ if (stdout) {
       return;
   }
   */
-
+/*
   function doSomethingWithUptime(uptime) {
   console.log(uptime);
 }
@@ -112,7 +112,7 @@ exec('uptime -p', (error, stdout, stderr) => {
   }
   const uptime = stdout
   doSomethingWithUptime(stdout);
-
+  */
 
  });
 
