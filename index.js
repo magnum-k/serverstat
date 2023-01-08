@@ -94,7 +94,7 @@ if (stdout) {
       console.log(`Uptime: ${stdout}`);
       return;
   }
- const uptime = ${stdout};
+ const uptime = (`${stdout}`);
 /*
   function doSomethingWithUptime(uptime) {
   console.log(uptime);
