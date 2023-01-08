@@ -71,7 +71,7 @@ if (stdout) {
       console.log(`Uptime: ${stdout}`);
       return;
   }
- const uptime = (`${stdout}`);
+ const uptime = `stdout}`;
 
 
         //Added new code to get top 5 processes
