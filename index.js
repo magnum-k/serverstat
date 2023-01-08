@@ -111,7 +111,6 @@ exec('uptime -p', (error, stdout, stderr) => {
     return;
   }
   doSomethingWithUptime(stdout);
-});
 
 
  });
