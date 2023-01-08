@@ -79,12 +79,12 @@ if (stdout) {
 
   exec(command, (error, stdout, stderr) => {
     if (error) {
-      console.log(`error: ${error.message}`)
-      return
+      console.log(`error: ${error.message}`);
+      return;
     }
     if (stderr) {
-      console.log(`stderr: ${stderr}`)
-      return
+      console.log(`stderr: ${stderr}`);
+      return;
     }
 
     const { mem, cpu, processes } = parseTopOutput(stdout)
