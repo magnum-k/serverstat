@@ -91,11 +91,10 @@ exec('uptime -p', (error, stdout, stderr) => {
   */
 
 if (stdout) {
-      const uptime = `${stdout}`;
       console.log(`Uptime: ${stdout}`);
       return;
   }
- 
+ const uptime = `${stdout}`;
 /*
   function doSomethingWithUptime(uptime) {
   console.log(uptime);
