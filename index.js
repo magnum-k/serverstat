@@ -124,7 +124,7 @@ exec('uptime -p', (error, stdout, stderr) => {
           { name: 'Total Memory Usage', value: `${totalMemoryUsage}% | ${totalMemoryGb} Gb / ${usedMemoryGb} Gb`, inline: true },
         )
           .addFields(
-          { name: 'Top 5 processes', value: `${uptime}`, inline: false }
+          { name: 'Top 5 processes', value: `uptime`, inline: false }
         )
         .setTimestamp()
         .setFooter({ text: 'Timestamp:', iconURL: 'https://www.dropbox.com/s/zis8oldi19r6thu/12G.png?dl=1' });
