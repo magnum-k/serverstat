@@ -75,7 +75,7 @@ if (stdout) {
 
 
         //Added new code to get top 5 processes
-      const command = 'top -b -n1'
+      const command = 'top -b -n1';
 
   exec(command, (error, stdout, stderr) => {
     if (error) {
