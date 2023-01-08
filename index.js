@@ -27,14 +27,14 @@ console.error(`Error: ${error}`);
 return;
 }
 
-    // Calculate the total CPU usage in percent
+/*    // Calculate the total CPU usage in percent
 const cpuUsageLines = stdout.split('\n').slice(1);
 let totalCpuUsage = 0;
 cpuUsageLines.forEach((line) => {
 totalCpuUsage += parseFloat(line.split(' ')[0]);
 });
 totalCpuUsage = (totalCpuUsage / numCpus).toFixed(2);
-
+*/
     //Run command to get free memory
 exec('free -m', (error, stdout, stderr) => {
   if (error) {
