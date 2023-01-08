@@ -136,7 +136,8 @@ exec('uptime -p', (error, stdout, stderr) => {
         
       message.channel.send({ embeds: [embed] });
     });
-  });
+
+  //});
     /*
     const parseTopOutput = output => {
   const lines = output.split('\n')
