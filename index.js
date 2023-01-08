@@ -50,6 +50,8 @@ exec('free -m', (error, stdout, stderr) => {
   const totalMemoryGb = (totalMemory / 1024).toFixed(0);
   const usedMemoryGb = (usedMemory / 1024).toFixed(0);
     
+  
+  const uptime = `stdout}`;
   exec('uptime -p', (error, stdout, stderr) => {
   if (error) {
     console.error(`Error: ${error}`);
@@ -71,7 +73,7 @@ if (stdout) {
       console.log(`Uptime: ${stdout}`);
       return;
   }
- const uptime = `stdout}`;
+
 
 
         //Added new code to get top 5 processes
