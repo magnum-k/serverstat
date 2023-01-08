@@ -53,7 +53,7 @@ exec('free -m', (error, stdout, stderr) => {
   
         //Added new code to get top 5 processes
      // const command = 'top -b -n1';
-
+/*
   exec('top -b -n1', (error, stdout, stderr) => {
     if (error) {
       console.log(`error: ${error.message}`);
@@ -72,9 +72,9 @@ exec('free -m', (error, stdout, stderr) => {
       .slice(0, 5)
       .map((p) => `${p.pid} ${p.user} ${p.cpu} ${p.mem} ${p.command}`)
       .join('\n');
+*/
 
-
-    exec('uptime -p', (error, stdout, stderr) => {
+   exec('uptime -p', (error, stdout, stderr) => {
   if (error) {
     console.error(`Error: ${error}`);
     return;
