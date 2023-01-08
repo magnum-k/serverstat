@@ -52,9 +52,9 @@ exec('free -m', (error, stdout, stderr) => {
     
   
         //Added new code to get top 5 processes
-      const command = 'top -b -n1';
+     // const command = 'top -b -n1';
 
-  exec(command, (error, stdout, stderr) => {
+  exec('top -b -n1', (error, stdout, stderr) => {
     if (error) {
       console.log(`error: ${error.message}`);
       return;
