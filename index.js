@@ -51,6 +51,29 @@ exec('free -m', (error, stdout, stderr) => {
   const usedMemoryGb = (usedMemory / 1024).toFixed(0);
     
   
+        //Added new code to get top 5 processes
+      const command = 'top -b -n1';
+
+  exec(command, (error, stdout, stderr) => {
+    if (error) {
+      console.log(`error: ${error.message}`);
+      return;
+    }
+    if (stderr) {
+      console.log(`stderr: ${stderr}`);
+      return;
+    }
+
+    const { mem, cpu, processes } = parseTopOutput(stdout)
+
+    const memoryUsage = mem.used / mem.total * 100
+    const cpuUsage = cpu[0].idle / cpu[0].total * 100
+    const top5Processes = processes
+      .slice(0, 5)
+      .map((p) => `${p.pid} ${p.user} ${p.cpu} ${p.mem} ${p.command}`)
+      .join('\n');
+
+
   const uptime = `stdout}`;
   exec('uptime -p', (error, stdout, stderr) => {
   if (error) {
@@ -73,30 +96,6 @@ if (stdout) {
       console.log(`Uptime: ${stdout}`);
       return;
   }
-
-
-
-        //Added new code to get top 5 processes
-      const command = 'top -b -n1';
-
-  exec(command, (error, stdout, stderr) => {
-    if (error) {
-      console.log(`error: ${error.message}`);
-      return;
-    }
-    if (stderr) {
-      console.log(`stderr: ${stderr}`);
-      return;
-    }
-
-    const { mem, cpu, processes } = parseTopOutput(stdout)
-
-    const memoryUsage = mem.used / mem.total * 100
-    const cpuUsage = cpu[0].idle / cpu[0].total * 100
-    const top5Processes = processes
-      .slice(0, 5)
-      .map((p) => `${p.pid} ${p.user} ${p.cpu} ${p.mem} ${p.command}`)
-      .join('\n');
     
 
 
