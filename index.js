@@ -51,7 +51,7 @@ client.on('messageCreate', (message) => {
                     .setDescription('Total memory and CPU usage')
                     .addFields(
                         { name: 'Total CPU Usage', value: `test`, inline: true },
-                        { name: 'Total Memory Usage', value: `${totalMemoryUsage}% | ${totalMemoryGb} Gb / ${usedMemoryGb} Gb`, inline: true },
+                        { name: 'Total Memory Usage', value: `${totalMemoryUsage}% | ${usedMemoryGb} Gb / ${totalMemoryGb} Gb`, inline: true },
                     )
                     .addFields(
                         { name: 'Total uptime', value: `${Uptime}`, inline: false }
