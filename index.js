@@ -76,5 +76,5 @@ client.on('ready', () => console.log(`${client.user.tag} has logged in`));
         });
     };
 });
-        };
+        });
 client.login(token);
