@@ -74,7 +74,7 @@ client.on('ready', () => console.log(`${client.user.tag} has logged in`));
                 message.edit({ embeds: [embed] });
 }, 900000); // Update every 15 minutes
 });
-});
+
 });
 
 client.login(token);
