@@ -44,7 +44,6 @@ client.on('messageCreate', (message) => {
                     return;
                 }
                 const Uptime = stdout;
-                 });
 
                 const embed = new EmbedBuilder()
                     .setColor(0x0099FF)
