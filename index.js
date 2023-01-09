@@ -42,7 +42,7 @@ client.on('messageCreate', (message) => {
                 if (stdout) {
                     console.log(`Uptime: ${stdout}`);
                     return;
-                };
+                }
                  const Uptime = stdout;
 
                 const embed = new EmbedBuilder()
