@@ -43,8 +43,8 @@ client.on('messageCreate', (message) => {
                     console.log(`Uptime: ${stdout}`);
                     return;
                     const Uptime = stdout;
-                }
-                 });
+                };
+                 
 
                 const embed = new EmbedBuilder()
                     .setColor(0x0099FF)
