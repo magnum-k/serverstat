@@ -23,9 +23,6 @@ client.on('ready', () => console.log(`${client.user.tag} has logged in`));
 
          // Set an interval to update the message every 15 minutes
         setInterval(() => {
-
-
-
 // client.on('messageCreate', (message) => {
 
     // if (message.content === '!update') {
@@ -75,7 +72,6 @@ client.on('ready', () => console.log(`${client.user.tag} has logged in`));
 
                 // Edit the message with the updated embed
                 message.edit({ embeds: [embed] });
-}
 }, 900000); // Update every 15 minutes
 });
 });
