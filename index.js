@@ -13,8 +13,22 @@ const client = new Client({
 
 client.on('ready', () => console.log(`${client.user.tag} has logged in`));
 
-client.on('messageCreate', (message) => {
-    if (message.content === '!update') {
+// Get the channel with the specified name
+    const channel = client.channels.cache.find(channel => channel.name === config.channelName);
+
+     // Send the initial message to the channel
+    channel.send('Bot has connected').then(sentMessage => {
+        // Save the message object
+        let message = sentMessage;
+
+         // Set an interval to update the message every 15 minutes
+        setInterval(() => {
+
+
+
+// client.on('messageCreate', (message) => {
+
+    // if (message.content === '!update') {
         // Run command to get free memory
         exec('free -m', (error, stdout, stderr) => {
             if (error) {
@@ -59,10 +73,12 @@ client.on('messageCreate', (message) => {
                     .setTimestamp()
                     .setFooter({ text: 'Timestamp:', iconURL: 'https://www.dropbox.com/s/zis8oldi19r6thu/12G.png?dl=1' });
 
-                message.channel.send({ embeds: [embed] });
-            });
-        });
-    }
+                // Edit the message with the updated embed
+                message.edit({ embeds: [embed] });
+}
+}, 900000); // Update every 15 minutes
+});
+});
 });
 
 client.login(token);
