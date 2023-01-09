@@ -39,10 +39,10 @@ client.on('messageCreate', (message) => {
                     console.error(`Error: ${stderr}`);
                     return;
                 }
-                if (stdout) {
+                /*if (stdout) {
                     console.log(`Uptime: ${stdout}`);
                     return;
-                }
+                }*/
                  const Uptime = stdout;
 
                 const embed = new EmbedBuilder()
