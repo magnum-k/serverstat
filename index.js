@@ -50,7 +50,7 @@ client.on('messageCreate', (message) => {
                     .setTitle('System Usage')
                     .setDescription('Total memory and CPU usage')
                     .addFields(
-                        { name: 'Total CPU Usage', value: `${totalCpuUsage}%`, inline: true },
+                        { name: 'Total CPU Usage', value: `test`, inline: true },
                         { name: 'Total Memory Usage', value: `${totalMemoryUsage}% | ${totalMemoryGb} Gb / ${usedMemoryGb} Gb`, inline: true },
                     )
                     .addFields(
